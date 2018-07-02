@@ -20,9 +20,11 @@ namespace GenericsProject
             var set1 = new HashSet<int> { 3, 6, 9, 12, 15 };
             var array1 = new[] { 4, 8, 12, 16, 20 };
 
+            var ec = new EnumerableCompositor<int> { list1, list2, set1, array1 };
+
             int numOdd = 0;
 
-            foreach (var value in list1)
+            foreach (var value in ec)
             {
                 if (IsOdd(value))
                 {
@@ -30,28 +32,12 @@ namespace GenericsProject
                 }
             }
 
-            foreach (var value in list2)
-            {
-                if (IsOdd(value))
-                {
-                    numOdd++;
-                }
-            }
+            //            int numOdd = ec.Count(x => IsOdd(x));
 
-            foreach (var value in set1)
-            {
-                if (IsOdd(value))
-                {
-                    numOdd++;
-                }
-            }
+            IEnumerable<int> firstThree = Utils.Take(list1, 3);
 
-            foreach (var value in array1)
+            foreach (var item in firstThree)
             {
-                if (IsOdd(value))
-                {
-                    numOdd++;
-                }
             }
         }
     }
