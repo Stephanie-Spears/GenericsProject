@@ -16,7 +16,7 @@ namespace GenericsProject
 
     internal class EnumerableCompositor<T> : IEnumerable<T>
     {
-        private List<IEnumerable<T>> _collections;
+        private readonly List<IEnumerable<T>> _collections;
 
         public EnumerableCompositor()
         {

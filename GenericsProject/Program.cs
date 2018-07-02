@@ -20,6 +20,8 @@ namespace GenericsProject
             var array1 = new[] { 4, 8, 12, 16, 20 };
 
             int numOdd = EcCreate(list1, list2, set1, array1).Count(x => IsOdd(x));
+
+            HashSet<int> set = EcCreate(list1, list2, set1, array1).To<HashSet<int>>();
         }
     }
 }
