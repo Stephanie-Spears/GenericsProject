@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static GenericsProject.EnumerableCompositor;
 
 namespace GenericsProject
 {
@@ -20,25 +19,7 @@ namespace GenericsProject
             var set1 = new HashSet<int> { 3, 6, 9, 12, 15 };
             var array1 = new[] { 4, 8, 12, 16, 20 };
 
-            var ec = new EnumerableCompositor<int> { list1, list2, set1, array1 };
-
-            int numOdd = 0;
-
-            foreach (var value in ec)
-            {
-                if (IsOdd(value))
-                {
-                    numOdd++;
-                }
-            }
-
-            //            int numOdd = ec.Count(x => IsOdd(x));
-
-            IEnumerable<int> firstThree = Utils.Take(list1, 3);
-
-            foreach (var item in firstThree)
-            {
-            }
+            int numOdd = EcCreate(list1, list2, set1, array1).Count(x => IsOdd(x));
         }
     }
 }
