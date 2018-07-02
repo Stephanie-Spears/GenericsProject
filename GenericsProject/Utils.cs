@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GenericsProject
 {
@@ -18,6 +19,12 @@ namespace GenericsProject
                     yield break;
                 }
             }
+        }
+
+        //To constrain what T can be, we add a where statement. This says T must implement the IComparable interface.
+        public static T Min<T>(T item1, T item2) where T : IComparable<T>
+        {
+            return (item1.CompareTo(item2) > 0) ? item1 : item2;
         }
     }
 }
